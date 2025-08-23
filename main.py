@@ -133,8 +133,7 @@ constant: Siempre predice una constante la cuál es provista por el usuario.
 útil si se elige la clase no prioritaria como constante, para que métricas como recall(sensibilidad) o F1 de esa clase no sean 0
 ya que si utilizamos por ejemplo la estrategia most_frequent, nunca la vamos a predecir.
 
-¿Por qué es importante tener un baseline?
-Entiendo que es importante tenerlo para tener un punto de comparación con nuestro modelo,
+¿Por qué es importante tener un baseline?Entiendo que es importante tenerlo para tener un punto de comparación con nuestro modelo,
 ya que si por ejemplo comparamos el rendimiento de nuestro modelo con un dummyClassifier y vemos que el porcentaje
 de predicciónes acertadas es similar, entonces algo nada mal.
 
@@ -161,13 +160,25 @@ Entiendo que el porcentaje recomendado es el 25% de los datos del dataset.
 Métricas de evaluación:
 ¿Qué significa cada métrica en classification_report?
 
-precision = De las predicciones que fueron de esta clase, ¿cuántas eran correctas?
-recall = De todas las instancias reales de esa clase, ¿cuántas fueron identificadas correctamente?, esto se refiere a
+precision = De todos los casos que el modelo marcó como positivo, cuántos realmente lo eran?
+
+recall = De todos los cusos positivos, cuántos encontró el modelo(pudo predecir correctamente que eran positivos), esto se refiere a
 positivos / positivos + falsos negativos
 
-de todas los registros de la clase que predijo el modelo que eran verdad, cuantos en verdad lo eran?
+f1-score = Se utiliza para saber cuán balanceado está el modelo o sea que tan bien logra el balance entre el recall y la precisión, siempre da como resultado un número entre 0 y 1,
+entiendo que al final esta métrica se utiliza para medir que tan bien performa el modelo.
+
+Support = Representa la cantidad de "registros"(concurrencias) de cada claser
+
+Accuracy: Mide que proporción de predicciónes fueron correctas, tanto positivos, como negativos.
 
 ¿Cómo interpretar la matriz de confusión?
-¿Cuándo usar accuracy vs otras métricas?
+La matriz de confusión se interpreta por cada clase, la cantidad de Verdaderos positivos, falsos positivos(error de tipo I, no rechazo H0, pero H0 era falsa), verdaderos negativos,
+falsos negativos(error de tipo II, rechazo H0, pero H0 era verdadera)
 
+¿Cuándo usar accuracy vs otras métricas?
+Considero que accuracy se utiliza solo cuando queres saber la cantidad de predicciónes que hizo correctas el modelo y entiendo
+cuándo se quiere tener una perspectiva más real del rendimiento del modelo(teniendo en cuenta el total de casos que el modelo tuvo que analizar) o la proporción de qué tan balanceado está el modelo, podemos utilizar métricas como
+precision, recall y f1-score.
 """
+
