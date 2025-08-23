@@ -180,5 +180,7 @@ falsos negativos(error de tipo II, rechazo H0, pero H0 era verdadera)
 Considero que accuracy se utiliza solo cuando queres saber la cantidad de predicciónes que hizo correctas el modelo y entiendo
 cuándo se quiere tener una perspectiva más real del rendimiento del modelo(teniendo en cuenta el total de casos que el modelo tuvo que analizar) o la proporción de qué tan balanceado está el modelo, podemos utilizar métricas como
 precision, recall y f1-score.
+
+
 """
 
