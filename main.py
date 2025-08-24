@@ -162,7 +162,7 @@ Métricas de evaluación:
 
 precision = De todos los casos que el modelo marcó como positivo, cuántos realmente lo eran?
 
-recall = De todos los cusos positivos, cuántos encontró el modelo(pudo predecir correctamente que eran positivos), esto se refiere a
+recall = De todos los casos positivos, cuántos encontró el modelo(pudo predecir correctamente que eran positivos), esto se refiere a
 positivos / positivos + falsos negativos
 
 f1-score = Se utiliza para saber cuán balanceado está el modelo o sea que tan bien logra el balance entre el recall y la precisión, siempre da como resultado un número entre 0 y 1,
@@ -181,6 +181,28 @@ Considero que accuracy se utiliza solo cuando queres saber la cantidad de predic
 cuándo se quiere tener una perspectiva más real del rendimiento del modelo(teniendo en cuenta el total de casos que el modelo tuvo que analizar) o la proporción de qué tan balanceado está el modelo, podemos utilizar métricas como
 precision, recall y f1-score.
 
+Matriz de confusión: ¿En qué casos se equivoca más el modelo: cuando predice que una persona sobrevivió y no lo hizo, o al revés?
+Según podemos visualizar en la Matriz de confusión, el modelo se equivoca más cuando predice que una persona no sobrevivió, pero en realidad si lo hizo esto ocurrió en
+21 casos, vs 12 casos en los cuales una persona si sobrevivió, pero el modelo predice que no lo hizo.
 
+Clases atendidas: ¿El modelo acierta más con los que sobrevivieron o con los que no sobrevivieron?
+El modelo acierta más con los que no sobrevivieron, esto debido a que tanto la precision como el recall, son más altos en el grupo de los que no sobrevivieron.
+
+Comparación con baseline: ¿La Regresión Logística obtiene más aciertos que el modelo que siempre predice la clase más común?
+Si, la Regresión Logística tuvo un 0.81 -> 81% de Accuracy(aciertos totales), frente al modelo que siempre predice la clase más común que tuvo un
+0.61 -> 61% de Accuracy.
+
+Errores más importantes: ¿Cuál de los dos tipos de error creés que es más grave para este problema?
+Para este problema creo que es más grave el error de tipo II(falsos negativos) o sea las personas que si sobrevivieron, pero el modelo predijo como que NO sobrevivieron,
+esto lo considero debido a por ejemplo si este modelo se utilizara para sacar algún tipo de estadística de que tan robusto era el titanic.
+
+Observaciones generales: Mirando las gráficas y números, ¿qué patrones interesantes encontraste sobre la supervivencia?
+Encontré que la mayoría de supervivientes eran mujeres y niños(haciendo una breve investigación, me di cuenta que esto fue porque a la hora de asignar las balsas, este grupo de personas fue priorizado), también
+que existía un patrón entre los supervivientes y la clase de su ticket, por lo que podemos entender que el nivel económico si influía en este caso,
+y por último pero no menos interesante, que la mayoría de sobrevivientes embarcaron en la puerta S = Southampton
+
+Mejoras simples: ¿Qué nueva columna (feature) se te ocurre que podría ayudar a que el modelo acierte más?
+Se me ocurre crear una feature que sea "SocioEconomical Level" que tenga 3 valores low, medium y high, y se calcule en base a verificar pclass (la clase del ticket del pasajero)
+y fare(costo del ticket)
 """
 
